@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const NavLayout = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [sidebarOpen, setSidebarOpen] = useState(false);
 
     const isActive = (path) => {
         return location.pathname === path;
@@ -23,12 +24,26 @@ const NavLayout = ({ children }) => {
 
     return (
         <div className="flex h-screen bg-gray-100 relative">
+            {/* Mobile menu button */}
+            <div className="lg:hidden fixed top-4 left-4 z-50">
+                <button
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    className="p-2 rounded-md bg-white shadow-lg"
+                >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
             {/* Sidebar */}
-            <div className="fixed top-0 left-0 w-64 h-screen bg-white shadow-lg">
+            <div className={`fixed top-0 left-0 w-64 h-screen bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-40 lg:translate-x-0 ${
+                sidebarOpen ? 'translate-x-0' : '-translate-x-full'
+            }`}>
                 <div className="flex flex-col h-full">
                     {/* Logo */}
                     <div className="flex items-center justify-center h-16 border-b px-4">
-                        <h1 className="text-2xl font-bold text-black-600">FinPay</h1>
+                        <h1 className="text-xl sm:text-2xl font-bold text-black-600">FinPay</h1>
                     </div>
 
                     {/* Navigation */}
@@ -37,14 +52,15 @@ const NavLayout = ({ children }) => {
                             <Link
                                 key={item.path}
                                 to={item.path}
-                                className={`flex items-center px-4 py-2 text-sm font-medium rounded-lg ${
+                                onClick={() => setSidebarOpen(false)}
+                                className={`flex items-center px-3 sm:px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                                     isActive(item.path)
                                         ? 'bg-purple-500 text-white'
                                         : 'text-gray-600 hover:bg-gray-50'
                                 }`}
                             >
                                 <svg
-                                    className={`w-5 h-5 mr-3 ${
+                                    className={`w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 ${
                                         isActive(item.path) ? 'text-white' : 'text-gray-400'
                                     }`}
                                     fill="none"
@@ -53,7 +69,7 @@ const NavLayout = ({ children }) => {
                                 >
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={item.icon} />
                                 </svg>
-                                {item.label}
+                                <span className="text-xs sm:text-sm">{item.label}</span>
                             </Link>
                         ))}
                     </nav>
@@ -69,16 +85,29 @@ const NavLayout = ({ children }) => {
                                 />
                             </div>
                             <div className="ml-3">
-                                <p className="text-sm font-medium text-gray-700">John Doe</p>
-                                <button className="text-xs text-gray-500 hover:text-gray-700" onClick={() => navigate('/learning')}>Sign out</button>
+                                <p className="text-xs sm:text-sm font-medium text-gray-700">John Doe</p>
+                                <button 
+                                    className="text-xs text-gray-500 hover:text-gray-700" 
+                                    onClick={() => navigate('/learning')}
+                                >
+                                    Sign out
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            {/* Overlay for mobile */}
+            {sidebarOpen && (
+                <div 
+                    className="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden"
+                    onClick={() => setSidebarOpen(false)}
+                ></div>
+            )}
+
             {/* Main Content */}
-            <div className="ml-64 flex-1">
+            <div className="flex-1 lg:ml-64">
                 <main className="p-0">
                     {children}
                 </main>

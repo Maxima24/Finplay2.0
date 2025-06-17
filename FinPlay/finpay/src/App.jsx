@@ -14,12 +14,12 @@ import Challenges from '../pages/challenges';
 import ChallengeDetails from '../pages/challenge-details';
 import Settings from '../pages/settings';
 import Trading from '../pages/trading';
-import Transactions from '../pages/transaction';
+import Transactions from '../pages/transactions';
 
 const router = createBrowserRouter([{element:<AppLayout/>,children:[
     {
         path: "/",
-        element: <Dashboard />
+        element: <Home />
     },
     {
         path: "/login",
@@ -66,13 +66,13 @@ const router = createBrowserRouter([{element:<AppLayout/>,children:[
         element:<Settings/>
     },
     {
-        path:'/trading',
+        path:'/transactions',
         element:<Trading/>
     },
     {
-        path:'/transactions',
+        path:'/budget',
         element:<Transactions/>
-    } 
+    }
 ]}])
 
 function App() {
