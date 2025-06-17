@@ -66,11 +66,11 @@ const router = createBrowserRouter([{element:<AppLayout/>,children:[
         element:<Settings/>
     },
     {
-        path:'/transactions',
+        path:'/trading',
         element:<Trading/>
     },
     {
-        path:'/budget',
+        path:'/transactions',
         element:<Transactions/>
     }
 ]}])
