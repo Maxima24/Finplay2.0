@@ -19,7 +19,7 @@ import Transactions from '../pages/transactions';
 const router = createBrowserRouter([{element:<AppLayout/>,children:[
     {
         path: "/",
-        element: <Home />
+        element: <Dashboard />
     },
     {
         path: "/login",
