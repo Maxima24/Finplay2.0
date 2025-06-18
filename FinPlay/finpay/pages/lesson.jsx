@@ -9,8 +9,8 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
-                title: 'Welcome to Trading Basics'
+                url: 'https://player.vimeo.com/video/523702929',
+                title: 'WebTrader Tutorial - Trading Analysis Tools'
             },
             {
                 type: 'text',
@@ -39,8 +39,8 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
-                title: 'Market Analysis Basics'
+                url: 'https://player.vimeo.com/video/523702929',
+                title: 'WebTrader Tutorial - Trading Analysis Tools'
             },
             {
                 type: 'text',
@@ -69,8 +69,8 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
-                title: 'Advanced Trading Techniques'
+                url: 'https://player.vimeo.com/video/523702929',
+                title: 'WebTrader Tutorial - Trading Analysis Tools'
             },
             {
                 type: 'text',
