@@ -9,7 +9,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
+                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
                 title: 'Welcome to Trading Basics'
             },
             {
@@ -39,7 +39,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
+                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
                 title: 'Market Analysis Basics'
             },
             {
@@ -69,7 +69,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
+                url: 'https://www.youtube.com/embed/8B1HvQdGvJc',
                 title: 'Advanced Trading Techniques'
             },
             {
@@ -100,6 +100,7 @@ function Lesson() {
     const [currentStep, setCurrentStep] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [showResult, setShowResult] = useState(false);
+    const [videoLoading, setVideoLoading] = useState(true);
 
     const lesson = lessons.find(lesson => lesson.id === parseInt(id));
 
@@ -137,6 +138,7 @@ function Lesson() {
             setCurrentStep(currentStep + 1);
             setSelectedAnswer(null);
             setShowResult(false);
+            setVideoLoading(true);
         }
     };
 
@@ -145,6 +147,7 @@ function Lesson() {
             setCurrentStep(currentStep - 1);
             setSelectedAnswer(null);
             setShowResult(false);
+            setVideoLoading(true);
         }
     };
 
@@ -160,11 +163,17 @@ function Lesson() {
             case 'video':
                 return (
                     <div className="absolute inset-0">
+                        {videoLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 z-10">
+                                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-purple-600"></div>
+                            </div>
+                        )}
                         <iframe
                             src={content.url}
                             title={content.title}
                             className="w-full h-full"
                             allowFullScreen
+                            onLoad={() => setVideoLoading(false)}
                         />
                     </div>
                 );
