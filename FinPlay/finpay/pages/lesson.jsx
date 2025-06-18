@@ -9,7 +9,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
                 title: 'Welcome to Trading Basics'
             },
             {
@@ -39,7 +39,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
                 title: 'Market Analysis Basics'
             },
             {
@@ -69,7 +69,7 @@ const lessons = [
         content: [
             {
                 type: 'video',
-                url: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                url: 'https://www.youtube.com/embed/8ZKZg5v2P6w',
                 title: 'Advanced Trading Techniques'
             },
             {

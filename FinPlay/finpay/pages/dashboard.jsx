@@ -66,15 +66,16 @@ const Dashboard = () => {
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-2 py-2 px-2 gap-4'>
           <div className='flex justify-center items-center'>
-            <img 
-              src="https://cdn.pixabay.com/photo/2016/11/19/15/32/laptop-1839876_1280.jpg" 
-              alt="Stock Chart" 
-              className="w-full h-auto rounded-lg shadow-lg max-w-md"
-              onError={(e) => {
-                e.target.onerror = null;
-                e.target.src = "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80";
-              }}
-            />
+            <div className="w-full max-w-md aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/8ZKZg5v2P6w"
+                title="Trading Explained"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-48 sm:h-64 md:h-80 rounded-lg shadow-lg"
+                style={{ minHeight: '200px', background: '#000' }}
+              ></iframe>
+            </div>
           </div>
           <div className='flex flex-col justify-start items-start p-4'>
             <h2 className="text-lg sm:text-xl font-semibold mb-4">Financial Technologies</h2>
